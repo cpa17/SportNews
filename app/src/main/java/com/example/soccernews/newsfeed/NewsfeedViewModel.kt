@@ -28,9 +28,9 @@ class NewsfeedViewModel(
     val savedNewsLiveData : LiveData<NewsResponse> = _savedNewsLiveData
 
 
-    fun getBreakingNews(page: Int, language : String, category: String) {
+    fun getBreakingNews(page: Int, country : String, category: String) {
         disposable.add(
-            newsAPIService.getBreakingNews(page, language, category)
+            newsAPIService.getBreakingNews(page, country, category)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<NewsResponse>() {

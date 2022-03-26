@@ -15,7 +15,7 @@ class NewsAPIService {
         .build()
         .create(NewsAPI::class.java)
 
-    fun getBreakingNews(page: Int, language : String, category: String): Single<NewsResponse> {
-        return api.breakingNews(page, language, category)
+    fun getBreakingNews(page: Int, country : String, category: String): Single<NewsResponse> {
+        return api.breakingNews(page, country, category)
     }
 }

@@ -15,7 +15,7 @@ interface NewsAPI {
     @GET(TOP_HEADLINES)
     fun breakingNews(
         @Query("page") page: Int,
-        @Query("language") language: String,
+        @Query("country") country: String,
         @Query("category") category: String,
         @Query("apikey") apikey: String = API_KEY
     ): Single<NewsResponse>

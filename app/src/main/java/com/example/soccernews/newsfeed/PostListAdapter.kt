@@ -33,7 +33,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         fun bind(item: NewsResponse.Article) {
 
 
-            item.let { response ->
+            item.let {
                 itemView.Title.text = item.title
                 //itemView.Description.text = item.description
                 itemView.Source.text = item.source?.name.toString()
