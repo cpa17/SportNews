@@ -35,7 +35,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
             item.let { response ->
                 itemView.Title.text = item.title
-                itemView.Description.text = item.description
+                //itemView.Description.text = item.description
                 itemView.Source.text = item.source?.name.toString()
                 itemView.PublishedAt.text = item.publishedAt
 

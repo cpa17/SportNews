@@ -40,7 +40,7 @@ class NewsfeedFragment : Fragment(R.layout.fragment_newsfeed) {
 
         viewModel = ViewModelProvider(this).get(NewsfeedViewModel::class.java)
 
-        viewModel.getBreakingNews("de")
+        viewModel.getBreakingNews(1,"de", "sports")
 
         viewModel.breakingNewsLiveData.observe(viewLifecycleOwner, Observer {
             it.articles?.let { it1 -> newsAdapter.setItems(it1) }
