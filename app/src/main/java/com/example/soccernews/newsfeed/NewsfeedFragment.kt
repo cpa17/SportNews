@@ -4,42 +4,65 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.soccernews.R
+import com.example.soccernews.data.NewsResponse
 import com.example.soccernews.databinding.FragmentNewsfeedBinding
+import kotlinx.android.synthetic.main.fragment_newsfeed.*
 
-class NewsfeedFragment : Fragment() {
+class NewsfeedFragment : Fragment(R.layout.fragment_newsfeed) {
 
-    private val newsfeedViewModel:NewsfeedViewModel by activityViewModels()
-    private var _binding: FragmentNewsfeedBinding? = null
+    private lateinit var viewModel: NewsfeedViewModel
+    private lateinit var binding: FragmentNewsfeedBinding
+    private var newsAdapter = NewsAdapter()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        _binding = FragmentNewsfeedBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = PostListAdapter().also { adapter ->
-                newsfeedViewModel.items.observe(viewLifecycleOwner) {
-                    adapter.submitList(it)
-                }
-            }
-        }
-        return root
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+
+        binding = FragmentNewsfeedBinding.inflate(inflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(NewsfeedViewModel::class.java)
+
+        viewModel.getBreakingNews("de")
+
+        viewModel.breakingNewsLiveData.observe(viewLifecycleOwner, Observer {
+            it.articles?.let { it1 -> newsAdapter.setItems(it1) }
+        })
+
+        viewModel.savedNewsLiveData.observe(viewLifecycleOwner, Observer {
+            it.articles?.let { it1 ->
+                newsAdapter.setItems(it1)
+            }
+        })
+
+
+        binding.apply {
+            recycler_view.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            recycler_view.adapter = newsAdapter
+        }
+
+
+
+        viewModel.newsSearchLiveData.observe(viewLifecycleOwner) {
+            it.articles?.let { it1 -> newsAdapter.setItems(it1) }
+        }
     }
 }

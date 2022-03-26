@@ -1,21 +1,48 @@
 package com.example.soccernews.newsfeed
 
+import android.app.Application
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.soccernews.api.NewsRepository
-import kotlinx.coroutines.launch
+import com.example.soccernews.BaseViewModel
+import com.example.soccernews.data.NewsAPIService
+import com.example.soccernews.data.NewsResponse
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.observers.DisposableSingleObserver
+import io.reactivex.schedulers.Schedulers
 
 class NewsfeedViewModel(
-    private val postRepository: NewsRepository
-) : ViewModel() {
+    application: Application
+) : BaseViewModel(application) {
 
-    val items = MutableLiveData<List<Post>>(emptyList())
+    private val newsAPIService = NewsAPIService()
+    private val disposable = CompositeDisposable()
 
-    init {
-        viewModelScope.launch {
-            val posts = postRepository.getBreakingNews().body()!!.articles
-            items.value = posts
-        }
+    private val _newsSearchLiveData = MutableLiveData<NewsResponse>()
+    val newsSearchLiveData : LiveData<NewsResponse> = _newsSearchLiveData
+
+    private val _breakingNewsLiveData = MutableLiveData<NewsResponse>()
+    val breakingNewsLiveData : LiveData<NewsResponse> = _breakingNewsLiveData
+
+    private val _savedNewsLiveData = MutableLiveData<NewsResponse>()
+    val savedNewsLiveData : LiveData<NewsResponse> = _savedNewsLiveData
+
+
+    fun getBreakingNews(country : String) {
+        disposable.add(
+            newsAPIService.getBreakingNews(country)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(object : DisposableSingleObserver<NewsResponse>() {
+                    override fun onSuccess(response: NewsResponse) {
+                        _breakingNewsLiveData.value = response
+                    }
+
+                    override fun onError(e: Throwable) {
+                        e.printStackTrace()
+                    }
+                })
+        )
+
     }
 }

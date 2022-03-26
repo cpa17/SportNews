@@ -1,44 +1,61 @@
 package com.example.soccernews.newsfeed
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.soccernews.databinding.ItemPostBinding
+import com.example.soccernews.R
+import com.example.soccernews.data.NewsResponse
+import kotlinx.android.synthetic.main.item_post.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
-class PostListAdapter: ListAdapter<Post, PostListAdapter.PostViewHolder>(Diff) {
+class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+    val items = arrayListOf<NewsResponse.Article>()
+    var newsItemClickListener: (NewsResponse.Article) -> Unit = {}
+    var favoritesItemClickListener: (NewsResponse.Article) -> Unit = {}
+    var savedList: ArrayList<NewsResponse.Article> = arrayListOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        return PostViewHolder(ItemPostBinding.inflate(inflater, parent, false))
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        NewsViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_post, parent, false)
+        )
+
+    override fun getItemCount() = items.count()
+    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+        holder.bind(items[position])
     }
 
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        val item = getItem(position)
-        Glide.with(holder.itemView).load(item.urlToImage).into(holder.binding.ArticleImage)
-        with(holder.binding) {
-            Title.text = item.title
-            Source.text = item.source?.name
-            PublishedAt.text = item.publishedAt
-            Description.text = item.description
+    inner class NewsViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(item: NewsResponse.Article) {
+
+
+            item.let { response ->
+                itemView.Title.text = item.title
+                itemView.Description.text = item.description
+                itemView.Source.text = item.source?.name.toString()
+                itemView.PublishedAt.text = item.publishedAt
+
+
+                Glide.with(itemView).load(item.urlToImage).into(itemView.ArticleImage)
+
+                itemView.setOnClickListener {
+                    newsItemClickListener(item)
+                }
+            }
         }
     }
 
-    class PostViewHolder(
-        val binding: ItemPostBinding
-    ): RecyclerView.ViewHolder(binding.root)
-
-    object Diff : DiffUtil.ItemCallback<Post>() {
-        override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
-            return oldItem.url == newItem.url
-        }
-
-        override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
-            return oldItem == newItem
-        }
+    fun setItems(response: ArrayList<NewsResponse.Article>) {
+        items.addAll(response)
+        notifyDataSetChanged()
     }
 
-
+    fun clearItems() {
+        items.clear()
+        notifyDataSetChanged()
+    }
 }
