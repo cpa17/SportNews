@@ -10,6 +10,9 @@
         android:name="com.example.soccernews.newsfeed.NewsfeedFragment"
         android:label="@string/title_news"
         tools:layout="@layout/fragment_newsfeed">
+        <action
+            android:id="@+id/action_navigation_news_to_navigation_details"
+            app:destination="@id/navigation_details" />
     </fragment>
 
     <fragment
@@ -23,4 +26,14 @@
         android:name="com.example.soccernews.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="com.example.soccernews.DetailsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_navigation_details_to_navigation_news"
+            app:destination="@id/navigation_news" />
+    </fragment>
 </navigation>

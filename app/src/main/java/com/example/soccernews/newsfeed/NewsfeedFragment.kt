@@ -46,23 +46,16 @@ class NewsfeedFragment : Fragment(R.layout.fragment_newsfeed) {
             it.articles?.let { it1 -> newsAdapter.setItems(it1) }
         })
 
-        viewModel.savedNewsLiveData.observe(viewLifecycleOwner, Observer {
-            it.articles?.let { it1 ->
-                newsAdapter.setItems(it1)
-            }
-        })
-
 
         binding.apply {
-            recycler_view.layoutManager =
+            rv_news_list.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            recycler_view.adapter = newsAdapter
+            rv_news_list.adapter = newsAdapter
         }
 
-
-
-        viewModel.newsSearchLiveData.observe(viewLifecycleOwner) {
-            it.articles?.let { it1 -> newsAdapter.setItems(it1) }
+        newsAdapter.newsItemClickListener = {
+            findNavController().navigate(R.id.action_navigation_news_to_navigation_details,
+                bundleOf("detail" to it))
         }
     }
 }
