@@ -1,5 +1,6 @@
 package com.example.soccernews.newsfeed
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,11 +33,8 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
             item.let {
                 itemView.Title.text = item.title
-                //itemView.Description.text = item.description
                 itemView.Source.text = item.source?.name.toString()
                 itemView.PublishedAt.text = item.publishedAt
-
-
                 Glide.with(itemView).load(item.urlToImage).into(itemView.ArticleImage)
 
                 itemView.setOnClickListener {
@@ -46,7 +44,15 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setItems(response: ArrayList<NewsResponse.Article>) {
         items.addAll(response)
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun clearItems() {
+        items.clear()
+        notifyDataSetChanged()
     }
 }
