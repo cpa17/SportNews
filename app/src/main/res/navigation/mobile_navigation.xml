@@ -35,5 +35,24 @@
         <action
             android:id="@+id/action_navigation_details_to_navigation_news"
             app:destination="@id/navigation_news" />
+        <action
+            android:id="@+id/action_navigation_details_to_navigation_news2"
+            app:destination="@id/navigation_news" />
+        <action
+            android:id="@+id/action_navigation_details_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.example.soccernews.WebViewFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" >
+        <action
+            android:id="@+id/action_webViewFragment_to_navigation_details"
+            app:destination="@id/navigation_details" />
+        <action
+            android:id="@+id/action_webViewFragment_to_navigation_news"
+            app:destination="@id/navigation_news" />
     </fragment>
 </navigation>

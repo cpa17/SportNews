@@ -1,9 +1,31 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:width="24dp"
-        android:height="24dp"
-        android:viewportWidth="24.0"
-        android:viewportHeight="24.0">
-    <path
-        android:fillColor="#131214"
-        android:pathData="M18,16.08c-0.76,0 -1.44,0.3 -1.96,0.77L8.91,12.7c0.05,-0.23 0.09,-0.46 0.09,-0.7s-0.04,-0.47 -0.09,-0.7l7.05,-4.11c0.54,0.5 1.25,0.81 2.04,0.81 1.66,0 3,-1.34 3,-3s-1.34,-3 -3,-3 -3,1.34 -3,3c0,0.24 0.04,0.47 0.09,0.7L8.04,9.81C7.5,9.31 6.79,9 6,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3c0.79,0 1.5,-0.31 2.04,-0.81l7.12,4.16c-0.05,0.21 -0.08,0.43 -0.08,0.65 0,1.61 1.31,2.92 2.92,2.92 1.61,0 2.92,-1.31 2.92,-2.92s-1.31,-2.92 -2.92,-2.92z"/>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="256"
+    android:viewportHeight="256"
+    android:width="256dp"
+    android:height="256dp">
+    <group
+        android:scaleX="0.72"
+        android:scaleY="0.72"
+        android:translateX="128"
+        android:translateY="128">
+        <group
+            android:scaleX="3.89"
+            android:scaleY="3.89"
+            android:translateX="-175.05"
+            android:translateY="-175.05">
+            <path
+                android:pathData="M85 35.661c-2.762 0 -5 -2.239 -5 -5V10H59.339c-2.762 0 -5 -2.239 -5 -5s2.238 -5 5 -5H85c2.762 0 5 2.239 5 5v25.661C90 33.422 87.762 35.661 85 35.661z"
+                android:fillColor="#000000"
+                android:strokeMiterLimit="10" />
+            <path
+                android:pathData="M33.678 61.322c-1.28 0 -2.559 -0.488 -3.536 -1.465c-1.953 -1.952 -1.953 -5.118 0 -7.07L81.465 1.464c1.951 -1.952 5.119 -1.952 7.07 0c1.953 1.953 1.953 5.119 0 7.071L37.214 59.857C36.237 60.834 34.958 61.322 33.678 61.322z"
+                android:fillColor="#000000"
+                android:strokeMiterLimit="10" />
+            <path
+                android:pathData="M74.394 90H15.606C7.001 90 0 82.999 0 74.394V15.606C0 7.001 7.001 0 15.606 0h18.072c2.761 0 5 2.239 5 5s-2.239 5 -5 5H15.606C12.515 10 10 12.515 10 15.606v58.787C10 77.485 12.515 80 15.606 80h58.787C77.485 80 80 77.485 80 74.394V56.322c0 -2.762 2.238 -5 5 -5s5 2.238 5 5v18.071C90 82.999 82.999 90 74.394 90z"
+                android:fillColor="#000000"
+                android:strokeMiterLimit="10" />
+        </group>
+    </group>
 </vector>
+

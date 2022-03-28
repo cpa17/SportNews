@@ -12,7 +12,7 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
     private val job = Job() // Bir iş açtık
 
     override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Main // Main Thread işini yap sonra main thread e dön
+        get() = job + Dispatchers.Main
 
 
     override fun onCleared() {

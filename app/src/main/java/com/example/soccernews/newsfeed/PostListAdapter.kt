@@ -14,8 +14,6 @@ import kotlin.collections.ArrayList
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
     val items = arrayListOf<NewsResponse.Article>()
     var newsItemClickListener: (NewsResponse.Article) -> Unit = {}
-    var favoritesItemClickListener: (NewsResponse.Article) -> Unit = {}
-    var savedList: ArrayList<NewsResponse.Article> = arrayListOf()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -51,11 +49,9 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     fun setItems(response: ArrayList<NewsResponse.Article>) {
         items.addAll(response)
-        notifyDataSetChanged()
     }
 
     fun clearItems() {
         items.clear()
-        notifyDataSetChanged()
     }
 }
