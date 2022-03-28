@@ -6,13 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.soccernews.R
-import com.example.soccernews.data.NewsResponse
+import com.example.soccernews.news.data.NewsResponse
 import kotlinx.android.synthetic.main.item_post.view.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
-    val items = arrayListOf<NewsResponse.Article>()
+    private val items = arrayListOf<NewsResponse.Article>()
     var newsItemClickListener: (NewsResponse.Article) -> Unit = {}
 
 
@@ -27,7 +26,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         holder.bind(items[position])
     }
 
-    inner class NewsViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: NewsResponse.Article) {
 
 
@@ -49,9 +48,5 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     fun setItems(response: ArrayList<NewsResponse.Article>) {
         items.addAll(response)
-    }
-
-    fun clearItems() {
-        items.clear()
     }
 }

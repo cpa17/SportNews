@@ -1,4 +1,4 @@
-package com.example.soccernews.data
+package com.example.soccernews.news.data
 
 import com.example.soccernews.util.Constants.Companion.API_KEY
 import io.reactivex.Single

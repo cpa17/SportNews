@@ -1,4 +1,4 @@
-package com.example.soccernews.data
+package com.example.soccernews.news.data
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

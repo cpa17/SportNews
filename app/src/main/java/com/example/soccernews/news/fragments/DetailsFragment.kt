@@ -1,4 +1,4 @@
-package com.example.soccernews
+package com.example.soccernews.news.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,22 +10,19 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.example.soccernews.data.NewsResponse
+import com.example.soccernews.R
+import com.example.soccernews.news.data.NewsResponse
 import com.example.soccernews.databinding.ItemDetailsBinding
 
 class DetailsFragment: Fragment(R.layout.item_details) {
 
     private lateinit var binding: ItemDetailsBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater:   LayoutInflater,
                     container: ViewGroup?,
                     savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = ItemDetailsBinding.inflate(inflater)
         return binding.root
@@ -60,7 +57,9 @@ class DetailsFragment: Fragment(R.layout.item_details) {
 
         binding.webViewButton.setOnClickListener {
             val navController: NavController =
-                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
+                Navigation.findNavController(requireActivity(),
+                    R.id.nav_host_fragment_activity_main
+                )
             val bundle = Bundle()
             (arguments?.get("detail") as NewsResponse.Article).let {
                 bundle.putSerializable("url", it.url)

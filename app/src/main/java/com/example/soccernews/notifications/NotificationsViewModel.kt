@@ -1,4 +1,4 @@
-package de.appsfactory.mobilecomputing.retrofitrecyclerviewsample.ui.notifications
+package com.example.soccernews.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

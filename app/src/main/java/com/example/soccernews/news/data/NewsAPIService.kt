@@ -1,4 +1,4 @@
-package com.example.soccernews.data
+package com.example.soccernews.news.data
 
 import com.example.soccernews.util.Constants.Companion.BASE_URL
 import io.reactivex.Single
