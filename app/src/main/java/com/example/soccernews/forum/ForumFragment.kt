@@ -1,4 +1,4 @@
-package com.example.soccernews.dashboard
+package com.example.soccernews.forum
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.soccernews.databinding.FragmentDashboardBinding
+import com.example.soccernews.databinding.FragmentForumBinding
 
-class DashboardFragment : Fragment() {
+class ForumFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private lateinit var forumViewModel: ForumViewModel
+    private var _binding: FragmentForumBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,16 +23,11 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        dashboardViewModel =
-            ViewModelProvider(this)[DashboardViewModel::class.java]
+        forumViewModel =
+            ViewModelProvider(this)[ForumViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentForumBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return root
     }
 

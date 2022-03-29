@@ -1,13 +1,13 @@
-package com.example.soccernews.dashboard
+package com.example.soccernews.forum
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class ForumViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "This is forum Fragment"
     }
     val text: LiveData<String> = _text
 }
