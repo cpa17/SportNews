@@ -25,9 +25,9 @@ class NewsfeedViewModel(
     val breakingNewsLiveData : LiveData<NewsResponse> = _breakingNewsLiveData
 
 
-    fun getBreakingNews(page: Int, country : String, category: String) {
+    fun getBreakingNews() {
         disposable.add(
-            newsAPIService.getBreakingNews(page, country, category)
+            newsAPIService.getBreakingNews()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<NewsResponse>() {
@@ -40,6 +40,22 @@ class NewsfeedViewModel(
                     }
                 })
         )
+    }
 
+    fun searchNews(searchTerm: String) {
+        disposable.add(
+            newsAPIService.searchNews(searchTerm)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(object : DisposableSingleObserver<NewsResponse>() {
+                    override fun onSuccess(response: NewsResponse) {
+                        _newsSearchLiveData.value = response
+                    }
+
+                    override fun onError(e: Throwable) {
+                        e.printStackTrace()
+                    }
+                })
+        )
     }
 }

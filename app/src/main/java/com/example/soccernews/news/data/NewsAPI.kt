@@ -14,9 +14,17 @@ interface NewsAPI {
 
     @GET(TOP_HEADLINES)
     fun breakingNews(
-        @Query("page") page: Int,
-        @Query("country") country: String,
-        @Query("category") category: String,
+        @Query("pageSize") page: Int = 100,
+        @Query("country") country: String = "de",
+        @Query("category") category: String = "sports",
+        @Query("apikey") apikey: String = API_KEY
+    ): Single<NewsResponse>
+
+    @GET(EVERYTHING)
+    fun searchNews(
+        @Query("q") searchTerm: String,
+        @Query("language") language: String = "de",
+        @Query("domains") domains: String = "Sport1.de, sport.de, fussballtransfers.com, spox.com, ruhr24.de, fcbinside.de, motorsport-total.com, kicker.de, eurosport.de",
         @Query("apikey") apikey: String = API_KEY
     ): Single<NewsResponse>
 }
