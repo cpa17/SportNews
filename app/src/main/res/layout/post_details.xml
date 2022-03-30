@@ -24,13 +24,13 @@
             android:src="@drawable/ic_back" />
 
         <ImageView
-            android:id="@+id/ivShare"
+            android:id="@+id/ivDelete"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
             android:layout_gravity="end"
-            android:src="@drawable/ic_more" />
+            android:src="@drawable/ic_delete" />
 
     </androidx.appcompat.widget.Toolbar>
 

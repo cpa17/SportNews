@@ -84,14 +84,4 @@ class PostFragment : Fragment(R.layout.fragment_create_post) {
 
     }
 
-    private fun deleteNote(){
-
-        lifecycleScope.launch {
-            context?.let {
-                ForumDatabase.getDatabase(it).forumDao().deleteSpecificPost(postId)
-                requireActivity().supportFragmentManager.popBackStack()
-            }
-        }
-    }
-
 }

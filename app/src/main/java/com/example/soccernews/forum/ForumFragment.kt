@@ -50,7 +50,7 @@ class ForumFragment : BaseFragment() {
         }
 
         forumListAdapter.postItemClickListener = {
-            findNavController().navigate(R.id.action_navigation_forum_to_createPost,
+            findNavController().navigate(R.id.action_navigation_forum_to_detailsPost,
                 bundleOf("detail" to it))
         }
 
