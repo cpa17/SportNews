@@ -1,4 +1,4 @@
-package com.example.soccernews.newsfeed
+package com.example.soccernews.news.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

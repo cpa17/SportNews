@@ -19,7 +19,11 @@
         android:id="@+id/navigation_forum"
         android:name="com.example.soccernews.forum.ForumFragment"
         android:label="@string/title_forum"
-        tools:layout="@layout/fragment_forum" />
+        tools:layout="@layout/fragment_forum" >
+        <action
+            android:id="@+id/action_navigation_forum_to_createPost"
+            app:destination="@id/createPost" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -54,5 +58,15 @@
         <action
             android:id="@+id/action_webViewFragment_to_navigation_news"
             app:destination="@id/navigation_news" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createPost"
+        android:name="com.example.soccernews.forum.PostFragment"
+        tools:layout="@layout/fragment_create_post"
+        >
+        <action
+            android:id="@+id/action_createPost_to_navigation_forum"
+            app:destination="@id/navigation_forum" />
     </fragment>
 </navigation>

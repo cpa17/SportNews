@@ -2,7 +2,6 @@ package com.example.soccernews.news.fragments
 
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
@@ -11,7 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.soccernews.R
 import com.example.soccernews.databinding.FragmentNewsfeedBinding
-import com.example.soccernews.newsfeed.NewsAdapter
+import com.example.soccernews.forum.ForumFragment
+import com.example.soccernews.news.adapters.NewsAdapter
 import com.example.soccernews.news.viewmodels.NewsfeedViewModel
 import kotlinx.android.synthetic.main.fragment_newsfeed.*
 
