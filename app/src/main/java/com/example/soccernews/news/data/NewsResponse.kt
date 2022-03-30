@@ -8,12 +8,6 @@ class NewsResponse {
     @SerializedName("articles")
     var articles: ArrayList<Article>? = null
 
-    @SerializedName("status")
-    var status: String? = null
-
-    @SerializedName("totalResults")
-    var totalResults: Int? = null
-
     @Parcelize
     data class Article(
         @SerializedName("author")

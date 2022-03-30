@@ -3,13 +3,9 @@ package com.example.soccernews.forum.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 class ForumResponse {
-    @SerializedName("articles")
-    var articles: ArrayList<Post>? = null
-
     @Entity(tableName = "posts")
     class Post : Serializable{
         @PrimaryKey(autoGenerate = true)
