@@ -29,12 +29,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.soccernews.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
-
-    <fragment
         android:id="@+id/navigation_details"
         android:name="com.example.soccernews.news.fragments.DetailsFragment"
         android:label="@string/title_notifications"
