@@ -1,4 +1,4 @@
-package com.example.soccernews.forum
+package com.example.soccernews.forum.data
 
 import android.content.Context
 import androidx.room.Database
@@ -25,5 +25,5 @@ abstract class ForumDatabase : RoomDatabase() {
         }
     }
 
-    abstract fun forumDao():ForumDao
+    abstract fun forumDao(): ForumDao
 }

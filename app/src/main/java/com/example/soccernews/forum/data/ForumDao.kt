@@ -1,4 +1,4 @@
-package com.example.soccernews.forum
+package com.example.soccernews.forum.data
 
 import androidx.room.*
 

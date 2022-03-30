@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.soccernews.R
 import com.example.soccernews.databinding.FragmentNewsfeedBinding
-import com.example.soccernews.forum.ForumFragment
 import com.example.soccernews.news.adapters.NewsAdapter
 import com.example.soccernews.news.viewmodels.NewsfeedViewModel
 import kotlinx.android.synthetic.main.fragment_newsfeed.*

@@ -1,4 +1,4 @@
-package com.example.soccernews.forum
+package com.example.soccernews.forum.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.soccernews.R
+import com.example.soccernews.forum.data.ForumResponse
+import com.example.soccernews.forum.data.ForumDatabase
 import kotlinx.android.synthetic.main.fragment_create_post.*
 import kotlinx.coroutines.launch
 

@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_forum"
-        android:name="com.example.soccernews.forum.ForumFragment"
+        android:name="com.example.soccernews.forum.fragments.ForumFragment"
         android:label="@string/title_forum"
         tools:layout="@layout/fragment_forum" >
         <action
@@ -59,7 +59,7 @@
 
     <fragment
         android:id="@+id/createPost"
-        android:name="com.example.soccernews.forum.PostFragment"
+        android:name="com.example.soccernews.forum.fragments.PostFragment"
         tools:layout="@layout/fragment_create_post"
         >
         <action
@@ -69,7 +69,7 @@
 
     <fragment
         android:id="@+id/detailsPost"
-        android:name="com.example.soccernews.forum.DetailsFragment"
+        android:name="com.example.soccernews.forum.fragments.DetailsFragment"
         tools:layout="@layout/fragment_create_post">
         <action
             android:id="@+id/action_detailsPost_to_navigation_forum"

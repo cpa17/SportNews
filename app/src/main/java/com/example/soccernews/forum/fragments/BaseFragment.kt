@@ -1,4 +1,4 @@
-package com.example.soccernews.forum
+package com.example.soccernews.forum.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

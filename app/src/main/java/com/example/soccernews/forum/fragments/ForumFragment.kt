@@ -1,23 +1,18 @@
-package com.example.soccernews.forum
+package com.example.soccernews.forum.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.os.bundleOf
-import androidx.databinding.DataBindingUtil.setContentView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.soccernews.R
-import com.example.soccernews.databinding.FragmentForumBinding
-import com.example.soccernews.news.adapters.NewsAdapter
+import com.example.soccernews.forum.data.ForumDatabase
+import com.example.soccernews.forum.adapters.ForumListAdapter
+import com.example.soccernews.forum.data.ForumResponse
 import kotlinx.android.synthetic.main.fragment_forum.*
 import kotlinx.coroutines.launch
-import java.util.*
 import kotlin.collections.ArrayList
 
 class ForumFragment : BaseFragment() {

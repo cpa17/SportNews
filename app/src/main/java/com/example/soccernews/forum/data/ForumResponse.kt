@@ -1,4 +1,4 @@
-package com.example.soccernews.forum
+package com.example.soccernews.forum.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -8,7 +8,7 @@ import java.io.Serializable
 
 class ForumResponse {
     @SerializedName("articles")
-    var articles: ArrayList<ForumResponse.Post>? = null
+    var articles: ArrayList<Post>? = null
 
     @Entity(tableName = "posts")
     class Post : Serializable{

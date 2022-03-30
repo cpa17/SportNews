@@ -1,4 +1,4 @@
-package com.example.soccernews.forum
+package com.example.soccernews.forum.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.soccernews.R
 import com.example.soccernews.databinding.PostDetailsBinding
-import com.example.soccernews.news.data.NewsResponse
+import com.example.soccernews.forum.data.ForumDatabase
+import com.example.soccernews.forum.data.ForumResponse
 import kotlinx.coroutines.launch
 
 class DetailsFragment: Fragment(R.layout.post_details) {
