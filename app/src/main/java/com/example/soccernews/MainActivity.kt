@@ -7,7 +7,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.soccernews.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.orhanobut.hawk.Hawk
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,8 +21,6 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController()
-
-        Hawk.init(this).build()
 
         supportActionBar?.hide()
 

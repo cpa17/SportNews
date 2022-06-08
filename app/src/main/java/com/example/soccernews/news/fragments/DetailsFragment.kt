@@ -39,7 +39,7 @@ class DetailsFragment: Fragment(R.layout.item_details) {
                     shareIntent.action = Intent.ACTION_SEND
                     shareIntent.type = "text/plain"
                     shareIntent.putExtra(Intent.EXTRA_TEXT, url)
-                    startActivity(Intent.createChooser(shareIntent, "Share via"))
+                    startActivity(Intent.createChooser(shareIntent, "Teilen..."))
                 }
             }
         }
